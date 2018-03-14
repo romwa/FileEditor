@@ -1,6 +1,7 @@
 package romwa.editors;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 //import java.io.FileWriter;
 import java.io.IOException;
 
@@ -23,9 +24,15 @@ public class FileWriter {
 			writer.write(content);
 			writer.flush();
 			writer.close();
-		} catch (IOException e) {
+		} catch (NullPointerException e) {
+			System.out.println("Content is empty");
 			e.printStackTrace();
-			System.out.println("Cannot access file");
+		} catch (FileNotFoundException e) {
+			System.out.println("The file " + file.getName() + " was not found");
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

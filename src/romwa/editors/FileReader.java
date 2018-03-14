@@ -29,8 +29,9 @@ public class FileReader {
 			}
 			in.close();
 		} catch (FileNotFoundException e) {
+//			System.out.println("The file " + file.getName() + " was not found");
 			e.printStackTrace();
-			System.out.println("Cannot access file. ");
+			return "The file " + file.getName() + " was not found";
 		}
 //		System.out.println(sFile);
 		return sFile;

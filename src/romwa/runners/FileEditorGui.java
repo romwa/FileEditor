@@ -96,7 +96,12 @@ public class FileEditorGui extends JFrame implements ActionListener{
 	//	}
 
 	public void read() {
-		sFile.setText(reader.readFile(file));
+		String path = JOptionPane.showInputDialog("Path:");
+		
+		if(path != null) {
+			file = new File(path);
+			sFile.setText(reader.readFile(file));
+		}
 	}
 
 	public void changeFile() {
